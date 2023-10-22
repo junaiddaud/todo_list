@@ -73,6 +73,12 @@ router.post("/login",((req,res)=>{
                         })
                
                 }
+                else{
+                    res.status(406).json({
+                        message:"Incorrect Password",
+                       
+                    })
+                }
                 // Store hash in your password DB.
             });
         }

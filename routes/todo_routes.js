@@ -36,9 +36,9 @@ console.log(req.body.status);
    
 }))
 router.post("/delete",checkAuth,((req,res)=>{
-    console.log(req.body.status);
+  
       
-      TodoList.findByIdAndDelete(req.body).then(result=>{
+      TodoList.findByIdAndDelete(req.body.id).then(result=>{
            res.status(200).json({message:"Todo deleted",
         result:result})
         })
@@ -51,7 +51,7 @@ router.post("/delete",checkAuth,((req,res)=>{
     }))
 router.get("/",checkAuth,((req,res)=>{
    
-  TodoList.find({user:req.userData.id}).exec().then(result=>{
+  TodoList.find({user:req.userData.id}).sort({ _id: -1 }).exec().then(result=>{
     res.status(200).json({data:result})
   })
     .catch(e=>{
