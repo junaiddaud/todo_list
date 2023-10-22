@@ -1,0 +1,11 @@
+.animated-button {
+ 
+ 
+
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.animated-button:hover {
+
+  transform: scale(1.05);
+}
